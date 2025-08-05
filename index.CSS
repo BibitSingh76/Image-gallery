@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height:100vh;
+    /* x direction me flow nahi karwana hai toh hidden kar diya*/
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+
+.container{
+    /* height puri liya hai and width 1200 hi liya hai */
+    height:100%;
+    width:1200px;
+    /* margin auto center me place karne ke liye hai */
+    margin:0 auto;
+    /* border and content ke beech ke destance ko padding kahte hai */
+    padding: 20px;
+}
+/* jo container ke andar h1 hai */
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    /* bottom se center par lane ke liye use kiya hai */
+    margin-bottom:20px;
+    font-size:3rem;
+}
+
+.gallery{
+    /* asani se image ke beech space dene ke liye flex use kiya */
+    display:flex;
+    /* sirf display flex se sabhi img ek line me aa jayengi isliye us wrap */
+    /* flex wrap se element niche aa jayenge */
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+/* figure ki class hai */
+.card{
+    /* 100% width ka ek card 32% ka ban jayega ab img ko isme merge karo*/
+    width:32%;
+    position:relative;
+    margin-bottom:20px;
+    /* corner curve karne ke liye  card ki*/
+    border-radius:10px;
+    overflow:hidden;
+}
+.card img{
+    width:100%;
+    filter:grayscale(100%);
+    box-shadow:0 0 20px #333;
+    /* img card me fit ho jayegi to neeche se bhi curve hoga */
+    height: 100%;
+}
+
+.card:hover{
+    /* img par jane par size ka badana  time bhi de sakte hai*/
+    transform:scale(1.03);
+    transition: 0.3;
+    /* shadow dene ke liye */
+    /* fillter drop se chaaro direction me shadow hoga */
+    filter:drop-shadow(0 0 10px #333);
+    box-shadow:#333;
+}
+.card:hover img{
+    /* jaise hi  img par jayenge original form me aa jayegi 0% de diya*/
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    /* overlap karna hai toh pos. absolute kar diya */
+    position:absolute;
+    bottom:0;
+    left: 0;
+    padding: 25px;
+    width:100%;
+    height:20%;
+    font-size:16px;
+    font-weight:500;
+    color: #fff;
+    opacity:0;
+    border-radius:0 0 10px 10px;
+    background:linear-gradient(0deg,rgba(0,0,0,0.5) 0%,rgb(255,255,255,0) 100%);
+    transition:0.5;
+}
+
+.card:hover figcaption{
+    opacity:1;
+    /* text ko bhi badana hai so use 1.03 */
+    transform: scale(1.03);
+}
